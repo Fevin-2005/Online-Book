@@ -16,12 +16,12 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
-    @GetMapping
+    @GetMapping("/get-book")
     public ResponseEntity<List<Books>> getAllBooks() {
         return ResponseEntity.ok(bookService.getAllBooks());
     }
 
-    @PostMapping
+    @PostMapping("/add-book")
     public ResponseEntity<Books> addBook(@RequestBody Books book) {
         Books newBook = bookService.addBook(book);
         return new ResponseEntity<>(newBook, HttpStatus.CREATED);
